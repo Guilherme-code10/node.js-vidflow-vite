@@ -1,15 +1,11 @@
-
 import axios from "axios";
 
 const containerVideos = document.querySelector(".videos__container");
 
 async function buscarEMostrarVideos() {
   const urlVideos = import.meta.env.PROD
-    ? `${import.meta.env.BASE_URL}videos.json`
-    : "http://localhost:3000/videos";
-
-  console.log(import.meta.env.PROD);
-  console.log(urlVideos);
+  ? `${import.meta.env.BASE_URL}videos.json`
+  : "http://localhost:3000/videos";
 
   try {
     const busca = await axios.get(urlVideos);
@@ -24,7 +20,7 @@ async function buscarEMostrarVideos() {
                 <li class="videos__item">
                     <iframe src="${video.url}" title="${video.titulo}" frameborder="0" allowfullscreen></iframe>
                     <div class="descricao-video">
-                        <img class="img-canal" src="${video.imagem}" alt="Logo do Canal">
+                        <img class="img-canal" src="${video.imagem} alt="Logo do Canal">
                         <h3 class="titulo-video">${video.titulo}</h3>
                         <p class="titulo-canal">${video.descricao}</p>
                         <p class="categoria" hidden>${video.categoria}</p>
